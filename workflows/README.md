@@ -1,19 +1,22 @@
-# Workflows
+# Workflows (GAV-AO)
 
-Scheduled and event-driven workflow definitions (documentation + export placeholders).
+## Deployed first (priority order)
 
-## Active Grok Automations (Green)
+| ID | File | Trust |
+|----|------|-------|
+| wf-01 | `wf-01-marketing-daily-draft.md` | Green → Amber publish |
+| wf-02 | `wf-02-exec-weekly-brief.md` | Green |
+| wf-03 | `wf-03-sec-asset-to-offer.md` | Green → Amber product launch |
 
-| Name | Cadence (PT) | Output |
-|------|----------------|--------|
-| GAV Daily Substack Note Draft | Daily 08:30 | Note draft only |
-| GAV Weekly Command Center Review | Sunday 18:00 | Exec brief |
-| GAV Weekly Market Intelligence | Wednesday 09:00 | Intel brief |
-| GAV Biweekly Division Health Check | See Automations | A/B status checklist |
+## Active Grok schedules (complement)
 
-## Adding a workflow
+- Daily Substack Note Draft
+- Weekly Market Intelligence
+- Weekly Command Center Review
+- Biweekly/Friday Division Health Check
 
-1. Classify Green / Amber / Red
-2. Prefer draft-only for anything public-facing
-3. Document trigger, inputs, outputs, and failure mode here
-4. Never embed secrets in exported JSON committed to git
+## n8n
+
+Prefer n8n for multi-step orchestration when self-hosted. Until then, Grok schedules + this repo are the control plane.
+
+**No Make. No Notion SoT.**
